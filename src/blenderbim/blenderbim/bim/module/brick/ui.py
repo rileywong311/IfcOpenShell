@@ -131,3 +131,23 @@ class BIM_UL_bricks(UIList):
             row.label(text=item.label if item.label else item.name)
             if item.total_items:
                 row.label(text=str(item.total_items))
+
+class BIM_PT_brickschema_project_info(Panel):
+    bl_label = "Brickschema Project Info"
+    bl_idname = "BIM_PT_brickschema_project_info"
+    bl_options = {"DEFAULT_CLOSED"}
+    bl_space_type = "PROPERTIES"
+    bl_region_type = "WINDOW"
+    bl_context = "scene"
+    bl_parent_id = "BIM_PT_brickschema"
+    
+    @ classmethod
+    def poll(cls, context):
+        return tool.brick.BrickStore.graph
+
+    def draw(self, context):
+        row = self.layout.row(align=True)
+        if(tool.brick.BrickStore.path):
+            row.label(text=tool.brick.BrickStore.path, icon="FILE")
+        else:
+            row.label(text="No Path", icon="FILE")

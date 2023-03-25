@@ -32,12 +32,13 @@ classes = (
     operator.RemoveBrick,
     operator.RewindBrickClass,
     operator.ViewBrickClass,
-    operator.ViewBrickItem,
+    operator.ViewBrickItem,   
     prop.Brick,
     prop.BIMBrickProperties,
     ui.BIM_PT_brickschema,
     ui.BIM_PT_ifc_brickschema_references,
     ui.BIM_UL_bricks,
+    ui.BIM_PT_brickschema_project_info,
 )
 
 
