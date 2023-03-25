@@ -42,9 +42,7 @@ class BIM_PT_brickschema(Panel):
             return
 
         row = self.layout.row(align=True)
-        if len(self.props.brick_breadcrumbs):
-            row.operator("bim.rewind_brick_class", text="", icon="FRAME_PREV")
-        row.label(text=self.props.active_brick_class)
+        row.alignment = "RIGHT"
         row.operator("bim.refresh_brick_viewer", text="", icon="FILE_REFRESH")
         row.operator("bim.close_brick_project", text="", icon="CANCEL")
 
@@ -54,7 +52,9 @@ class BIM_PT_brickschema(Panel):
         row.operator("bim.add_brick", text="", icon="ADD")
 
         row = self.layout.row(align=True)
-        row.alignment = "RIGHT"
+        if len(self.props.brick_breadcrumbs):
+            row.operator("bim.rewind_brick_class", text="", icon="FRAME_PREV")
+        row.label(text=self.props.active_brick_class)
         row.operator("bim.add_brick_feed", text="", icon="PLUGIN")
         row.operator("bim.remove_brick", text="", icon="X")
 
