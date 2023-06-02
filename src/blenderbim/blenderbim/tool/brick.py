@@ -308,6 +308,11 @@ class Brick(blenderbim.core.tool.Brick):
     def set_active_brick_class(cls, brick_class):
         bpy.context.scene.BIMBrickProperties.active_brick_class = brick_class
 
+    @classmethod
+    def serialize(cls, file_name):
+        print("Serializing: \"" + file_name + "\" ... ", end="")
+        BrickStore.graph.serialize(file_name)
+        print("finished!")
 
 class BrickStore:
     schema = None
